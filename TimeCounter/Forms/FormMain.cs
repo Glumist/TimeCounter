@@ -168,5 +168,11 @@ namespace TimeCounter
             Show();
             RefreshRecordsTable();
         }
+
+        private void dgvTimers_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                OpenTimerWindow();
+        }
     }
 }

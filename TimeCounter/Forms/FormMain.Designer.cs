@@ -30,22 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.msTimers = new System.Windows.Forms.MenuStrip();
-            this.dgvTimers = new System.Windows.Forms.DataGridView();
-            this.colLastUpdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotalTimer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsmiRecordAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRecordEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRecordDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAddTime = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiTimer = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiChart = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiTimer = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvTimers = new System.Windows.Forms.DataGridView();
+            this.colLastUpdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotalTimer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.msTimers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimers)).BeginInit();
             this.SuspendLayout();
             // 
             // msTimers
             // 
+            this.msTimers.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.msTimers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiRecordAdd,
             this.tsmiRecordEdit,
@@ -55,9 +56,64 @@
             this.tsmiTimer});
             this.msTimers.Location = new System.Drawing.Point(0, 0);
             this.msTimers.Name = "msTimers";
-            this.msTimers.Size = new System.Drawing.Size(369, 24);
+            this.msTimers.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.msTimers.Size = new System.Drawing.Size(554, 34);
             this.msTimers.TabIndex = 0;
             this.msTimers.Text = "menuStrip1";
+            // 
+            // tsmiRecordAdd
+            // 
+            this.tsmiRecordAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsmiRecordAdd.Image = global::TimeCounter.Properties.Resources.IconPlus;
+            this.tsmiRecordAdd.Name = "tsmiRecordAdd";
+            this.tsmiRecordAdd.Size = new System.Drawing.Size(36, 28);
+            this.tsmiRecordAdd.Text = "Добавить";
+            this.tsmiRecordAdd.Click += new System.EventHandler(this.tsmiRecordAdd_Click);
+            // 
+            // tsmiRecordEdit
+            // 
+            this.tsmiRecordEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsmiRecordEdit.Image = global::TimeCounter.Properties.Resources.IconEdit;
+            this.tsmiRecordEdit.Name = "tsmiRecordEdit";
+            this.tsmiRecordEdit.Size = new System.Drawing.Size(36, 28);
+            this.tsmiRecordEdit.Text = "Редактировать";
+            this.tsmiRecordEdit.Click += new System.EventHandler(this.tsmiRecordEdit_Click);
+            // 
+            // tsmiRecordDelete
+            // 
+            this.tsmiRecordDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsmiRecordDelete.Image = global::TimeCounter.Properties.Resources.action_delete_sharp_thick;
+            this.tsmiRecordDelete.Name = "tsmiRecordDelete";
+            this.tsmiRecordDelete.Size = new System.Drawing.Size(36, 28);
+            this.tsmiRecordDelete.Text = "Удалить";
+            this.tsmiRecordDelete.Click += new System.EventHandler(this.tsmiRecordDelete_Click);
+            // 
+            // tsmiAddTime
+            // 
+            this.tsmiAddTime.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsmiAddTime.Image = global::TimeCounter.Properties.Resources.IconTimeAdd;
+            this.tsmiAddTime.Name = "tsmiAddTime";
+            this.tsmiAddTime.Size = new System.Drawing.Size(36, 28);
+            this.tsmiAddTime.Text = "Добавить время";
+            this.tsmiAddTime.Click += new System.EventHandler(this.tsmiAddTime_Click);
+            // 
+            // tsmiChart
+            // 
+            this.tsmiChart.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsmiChart.Image = global::TimeCounter.Properties.Resources.IconChart;
+            this.tsmiChart.Name = "tsmiChart";
+            this.tsmiChart.Size = new System.Drawing.Size(36, 28);
+            this.tsmiChart.Text = "Диаграмма";
+            this.tsmiChart.Click += new System.EventHandler(this.tsmiChart_Click);
+            // 
+            // tsmiTimer
+            // 
+            this.tsmiTimer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsmiTimer.Image = global::TimeCounter.Properties.Resources.IconTimer;
+            this.tsmiTimer.Name = "tsmiTimer";
+            this.tsmiTimer.Size = new System.Drawing.Size(36, 28);
+            this.tsmiTimer.Text = "Таймер";
+            this.tsmiTimer.Click += new System.EventHandler(this.tsmiTimer_Click);
             // 
             // dgvTimers
             // 
@@ -72,15 +128,17 @@
             this.colTotalTimer});
             this.dgvTimers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTimers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvTimers.Location = new System.Drawing.Point(0, 24);
+            this.dgvTimers.Location = new System.Drawing.Point(0, 34);
+            this.dgvTimers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTimers.MultiSelect = false;
             this.dgvTimers.Name = "dgvTimers";
             this.dgvTimers.ReadOnly = true;
             this.dgvTimers.RowHeadersVisible = false;
             this.dgvTimers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTimers.Size = new System.Drawing.Size(369, 215);
+            this.dgvTimers.Size = new System.Drawing.Size(554, 334);
             this.dgvTimers.TabIndex = 1;
             this.dgvTimers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimers_CellContentDoubleClick);
+            this.dgvTimers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvTimers_KeyDown);
             // 
             // colLastUpdate
             // 
@@ -104,69 +162,16 @@
             this.colTotalTimer.Name = "colTotalTimer";
             this.colTotalTimer.ReadOnly = true;
             // 
-            // tsmiRecordAdd
-            // 
-            this.tsmiRecordAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsmiRecordAdd.Image = global::TimeCounter.Properties.Resources.IconPlus;
-            this.tsmiRecordAdd.Name = "tsmiRecordAdd";
-            this.tsmiRecordAdd.Size = new System.Drawing.Size(28, 20);
-            this.tsmiRecordAdd.Text = "Добавить";
-            this.tsmiRecordAdd.Click += new System.EventHandler(this.tsmiRecordAdd_Click);
-            // 
-            // tsmiRecordEdit
-            // 
-            this.tsmiRecordEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsmiRecordEdit.Image = global::TimeCounter.Properties.Resources.IconEdit;
-            this.tsmiRecordEdit.Name = "tsmiRecordEdit";
-            this.tsmiRecordEdit.Size = new System.Drawing.Size(28, 20);
-            this.tsmiRecordEdit.Text = "Редактировать";
-            this.tsmiRecordEdit.Click += new System.EventHandler(this.tsmiRecordEdit_Click);
-            // 
-            // tsmiRecordDelete
-            // 
-            this.tsmiRecordDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsmiRecordDelete.Image = global::TimeCounter.Properties.Resources.action_delete_sharp_thick;
-            this.tsmiRecordDelete.Name = "tsmiRecordDelete";
-            this.tsmiRecordDelete.Size = new System.Drawing.Size(28, 20);
-            this.tsmiRecordDelete.Text = "Удалить";
-            this.tsmiRecordDelete.Click += new System.EventHandler(this.tsmiRecordDelete_Click);
-            // 
-            // tsmiAddTime
-            // 
-            this.tsmiAddTime.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsmiAddTime.Image = global::TimeCounter.Properties.Resources.IconTimeAdd;
-            this.tsmiAddTime.Name = "tsmiAddTime";
-            this.tsmiAddTime.Size = new System.Drawing.Size(28, 20);
-            this.tsmiAddTime.Text = "Добавить время";
-            this.tsmiAddTime.Click += new System.EventHandler(this.tsmiAddTime_Click);
-            // 
-            // tsmiTimer
-            // 
-            this.tsmiTimer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsmiTimer.Image = global::TimeCounter.Properties.Resources.IconTimer;
-            this.tsmiTimer.Name = "tsmiTimer";
-            this.tsmiTimer.Size = new System.Drawing.Size(28, 20);
-            this.tsmiTimer.Text = "Таймер";
-            this.tsmiTimer.Click += new System.EventHandler(this.tsmiTimer_Click);
-            // 
-            // tsmiChart
-            // 
-            this.tsmiChart.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsmiChart.Image = global::TimeCounter.Properties.Resources.IconChart;
-            this.tsmiChart.Name = "tsmiChart";
-            this.tsmiChart.Size = new System.Drawing.Size(28, 20);
-            this.tsmiChart.Text = "Диаграмма";
-            this.tsmiChart.Click += new System.EventHandler(this.tsmiChart_Click);
-            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 239);
+            this.ClientSize = new System.Drawing.Size(554, 368);
             this.Controls.Add(this.dgvTimers);
             this.Controls.Add(this.msTimers);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msTimers;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormMain";
             this.Text = "Таймеры";
             this.msTimers.ResumeLayout(false);

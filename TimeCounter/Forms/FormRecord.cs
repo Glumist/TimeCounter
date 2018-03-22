@@ -37,7 +37,7 @@ namespace TimeCounter
 
             List<Counter> timers = new List<Counter>();
             foreach (DateTime key in record.Timers.Keys)
-                timers.Add(new Counter(key, TimeSpan.FromSeconds(record.Timers[key])));
+                timers.Insert(0, new Counter(key, TimeSpan.FromSeconds(record.Timers[key])));
             dgvTimers.DataSource = timers;
 
             cbPeriod.SelectedIndex = 1;

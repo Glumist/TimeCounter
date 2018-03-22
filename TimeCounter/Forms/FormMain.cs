@@ -173,6 +173,7 @@ namespace TimeCounter
         {
             if (e.KeyCode == Keys.Enter)
                 OpenTimerWindow();
+            e.SuppressKeyPress = true;
         }
     }
 }

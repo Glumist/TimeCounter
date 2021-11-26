@@ -17,6 +17,8 @@ namespace TimeCounter
         private int saveCounter;
         private Dictionary<DateTime, double> unsavedTimers;
 
+        public event EventHandler OnStart;
+
         public FormTimer(Record record)
         {
             InitializeComponent();
@@ -27,24 +29,21 @@ namespace TimeCounter
             saveCounter = 0;
             unsavedTimers = new Dictionary<DateTime, double>();
 
-            tbCurrentTimer.Text = Record.GetStringFotTimeSpan(currentTimer);
-            tbTotalTimer.Text = Record.GetStringFotTimeSpan(TimeSpan.FromSeconds(editedRecord.TotalTimer));
+            RefreshData();
+            //tbCurrentTimer.Text = Record.GetStringFotTimeSpan(currentTimer);
+            //tbTotalTimer.Text = Record.GetStringFotTimeSpan(TimeSpan.FromSeconds(editedRecord.TotalTimer));
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
             currentTimer = currentTimer.Add(TimeSpan.FromSeconds(1));
-            tbCurrentTimer.Text = Record.GetStringFotTimeSpan(currentTimer);
 
             DateTime today = DateTime.Today;
             if (!unsavedTimers.ContainsKey(today))
                 unsavedTimers.Add(today, 0);
             unsavedTimers[today]++;
 
-            double unsavedTotal = 0;
-            foreach (double val in unsavedTimers.Values)
-                unsavedTotal += val;
-            tbTotalTimer.Text = Record.GetStringFotTimeSpan(TimeSpan.FromSeconds(editedRecord.TotalTimer + unsavedTotal));
+            RefreshData();
 
             if (saveCounter < 60)
                 saveCounter++;
@@ -55,8 +54,28 @@ namespace TimeCounter
             }
         }
 
+        private void RefreshData()
+        {
+            tbCurrentTimer.Text = Record.GetStringFotTimeSpan(currentTimer);
+
+            DateTime today = DateTime.Today;
+            double todayTimer = 0;
+            if (editedRecord.Timers.ContainsKey(today))
+                todayTimer += editedRecord.Timers[today];
+            if (unsavedTimers.ContainsKey(today))
+                todayTimer += unsavedTimers[today];
+            tbTodayTimer.Text = Record.GetStringFotTimeSpan(TimeSpan.FromSeconds(todayTimer));
+
+            double unsavedTotal = 0;
+            foreach (double val in unsavedTimers.Values)
+                unsavedTotal += val;
+            tbTotalTimer.Text = Record.GetStringFotTimeSpan(TimeSpan.FromSeconds(editedRecord.TotalTimer + unsavedTotal));
+        }
+
         private void btStart_Click(object sender, EventArgs e)
         {
+            if (OnStart != null)
+                OnStart(this, EventArgs.Empty);
             btPause.Enabled = true;
             btStart.Enabled = false;
             timer.Enabled = true;
@@ -64,6 +83,11 @@ namespace TimeCounter
         }
 
         private void btPause_Click(object sender, EventArgs e)
+        {
+            Pause();
+        }
+
+        public void Pause()
         {
             btPause.Enabled = false;
             btStart.Enabled = true;

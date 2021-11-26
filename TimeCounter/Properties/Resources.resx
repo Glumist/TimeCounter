@@ -124,6 +124,9 @@
   <data name="IconPause" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconPause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconChart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconChart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconTimer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconTimer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,7 +145,7 @@
   <data name="IconStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconStop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IconChart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconChart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IconFilter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconFilter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

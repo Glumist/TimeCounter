@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbTotalTimer = new System.Windows.Forms.TextBox();
             this.tbCurrentTimer = new System.Windows.Forms.TextBox();
+            this.tbTodayTimer = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer
@@ -49,7 +51,7 @@
             // 
             this.btStop.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btStop.Image = global::TimeCounter.Properties.Resources.IconStop;
-            this.btStop.Location = new System.Drawing.Point(278, 152);
+            this.btStop.Location = new System.Drawing.Point(278, 214);
             this.btStop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btStop.Name = "btStop";
             this.btStop.Size = new System.Drawing.Size(120, 118);
@@ -61,7 +63,7 @@
             // 
             this.btPause.Enabled = false;
             this.btPause.Image = global::TimeCounter.Properties.Resources.IconPause;
-            this.btPause.Location = new System.Drawing.Point(148, 152);
+            this.btPause.Location = new System.Drawing.Point(148, 214);
             this.btPause.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btPause.Name = "btPause";
             this.btPause.Size = new System.Drawing.Size(120, 118);
@@ -72,7 +74,7 @@
             // btStart
             // 
             this.btStart.Image = ((System.Drawing.Image)(resources.GetObject("btStart.Image")));
-            this.btStart.Location = new System.Drawing.Point(20, 152);
+            this.btStart.Location = new System.Drawing.Point(20, 214);
             this.btStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btStart.Name = "btStart";
             this.btStart.Size = new System.Drawing.Size(120, 118);
@@ -86,14 +88,14 @@
             this.label1.Location = new System.Drawing.Point(15, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 20);
+            this.label1.Size = new System.Drawing.Size(128, 20);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Текущий счетчик";
+            this.label1.Text = "Текущая сессия";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 83);
+            this.label2.Location = new System.Drawing.Point(15, 145);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 20);
@@ -102,7 +104,7 @@
             // 
             // tbTotalTimer
             // 
-            this.tbTotalTimer.Location = new System.Drawing.Point(20, 108);
+            this.tbTotalTimer.Location = new System.Drawing.Point(20, 170);
             this.tbTotalTimer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbTotalTimer.Name = "tbTotalTimer";
             this.tbTotalTimer.ReadOnly = true;
@@ -120,12 +122,34 @@
             this.tbCurrentTimer.TabIndex = 6;
             this.tbCurrentTimer.TabStop = false;
             // 
+            // tbTodayTimer
+            // 
+            this.tbTodayTimer.Location = new System.Drawing.Point(20, 99);
+            this.tbTodayTimer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbTodayTimer.Name = "tbTodayTimer";
+            this.tbTodayTimer.ReadOnly = true;
+            this.tbTodayTimer.Size = new System.Drawing.Size(376, 26);
+            this.tbTodayTimer.TabIndex = 8;
+            this.tbTodayTimer.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 75);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Всего за сегодня";
+            // 
             // FormTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btStop;
-            this.ClientSize = new System.Drawing.Size(416, 288);
+            this.ClientSize = new System.Drawing.Size(416, 355);
+            this.Controls.Add(this.tbTodayTimer);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.tbCurrentTimer);
             this.Controls.Add(this.tbTotalTimer);
             this.Controls.Add(this.label2);
@@ -156,5 +180,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbTotalTimer;
         private System.Windows.Forms.TextBox tbCurrentTimer;
+        private System.Windows.Forms.TextBox tbTodayTimer;
+        private System.Windows.Forms.Label label3;
     }
 }

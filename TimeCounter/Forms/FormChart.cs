@@ -66,7 +66,7 @@ namespace TimeCounter
         {
             if (cbPeriod.SelectedIndex == 4)
                 dtpStart.Value = dtpEnd.Value;
-
+            
             RefreshChart();
         }
 
@@ -86,10 +86,9 @@ namespace TimeCounter
                 point.Label = key;
             }
 
-            double sum = 0;
-            data.Values.ToList().ForEach(v => sum += v);
-            if (sum > 0)
-                lSum.Text = "Итого: " + Record.GetStringFotTimeSpan(TimeSpan.FromSeconds(sum));
+            string sumString = Record.GetStringForTimers(data);
+            if (sumString.Length > 0)
+                lSum.Text = "Итого: " + sumString;
             else
                 lSum.Text = "";
         }

@@ -74,6 +74,16 @@ namespace TimeCounter
             }
         }
 
+        public static string GetStringForTimers(Dictionary<string, double> data)
+        {
+            double sum = 0;
+            data.Values.ToList().ForEach(v => sum += v);
+            if (sum > 0)
+                return Record.GetStringFotTimeSpan(TimeSpan.FromSeconds(sum));
+            else
+                return "";
+        }
+
         public static string GetStringFotTimeSpan(TimeSpan timespan)
         {
             return string.Format("{0}:{1:00}:{2:00}", Math.Floor(timespan.TotalHours), timespan.Minutes, timespan.Seconds);

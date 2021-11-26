@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IconTimer.ico" />
+    <None Include="Resources\IconFilter.png" />
     <None Include="Resources\IconChart.png" />
     <None Include="Resources\IconTimeAdd.png" />
     <None Include="Resources\IconTimer.png" />

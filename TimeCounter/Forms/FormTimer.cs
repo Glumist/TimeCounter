@@ -79,6 +79,7 @@ namespace TimeCounter
             btPause.Enabled = true;
             btStart.Enabled = false;
             timer.Enabled = true;
+            lStopped.Text = "";
             btPause.Select();
         }
 
@@ -92,6 +93,7 @@ namespace TimeCounter
             btPause.Enabled = false;
             btStart.Enabled = true;
             timer.Enabled = false;
+            lStopped.Text = "Остановлено в " + DateTime.Now.ToString("HH:mm");
             btStart.Select();
             Save();
         }

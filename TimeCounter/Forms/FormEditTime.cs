@@ -10,18 +10,32 @@ using System.Windows.Forms;
 
 namespace TimeCounter
 {
-    public partial class FormAddTime : Form
+    public partial class FormEditTime : Form
     {
         private int maxMinutes;
         public int AddedMinutes;
+        public int EditedMinutes;
         public DateTime? AddedDate;
 
-        public FormAddTime(string name)
+        public FormEditTime(string name) // добавление
         {
             InitializeComponent();
 
             lName.Text = name;
             maxMinutes = -1;
+            EditedMinutes = 0;
+        }
+
+        public FormEditTime(string name, DateTime date, int minutes) // редактирование
+            :this(name)
+        {
+            dtpDate.Value = date;
+            dtpDate.Enabled = false;
+            this.Text = "Редактирование времени";
+
+            EditedMinutes = minutes;
+            nudHours.Value = Math.Floor((decimal)minutes / 60);
+            nudMinutes.Value = minutes - nudHours.Value * 60;
         }
 
         private void dtpDate_EnabledChanged(object sender, EventArgs e)
@@ -44,7 +58,7 @@ namespace TimeCounter
                 int sumMinutes = (int)Math.Floor((decimal)(sumSeconds / 60));
                 if (sumSeconds > sumMinutes * 60)
                     sumMinutes++;
-                maxMinutes = 24 * 60 - sumMinutes;
+                maxMinutes = 24 * 60 - sumMinutes + EditedMinutes;
 
                 decimal hours = Math.Floor((decimal)maxMinutes / 60);
                 lAvailable.Text = "На эту дату доступно " + hours + "ч " + (maxMinutes - hours * 60) + "м";
@@ -83,6 +97,7 @@ namespace TimeCounter
         private void btOk_Click(object sender, EventArgs e)
         {
             AddedMinutes = (int)nudHours.Value * 60 + (int)nudMinutes.Value;
+            EditedMinutes = AddedMinutes;
             if (dtpDate.Checked)
                 AddedDate = dtpDate.Value;
             else

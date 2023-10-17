@@ -40,6 +40,7 @@
             this.tbCurrentTimer = new System.Windows.Forms.TextBox();
             this.tbTodayTimer = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.lStopped = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer
@@ -51,7 +52,7 @@
             // 
             this.btStop.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btStop.Image = global::TimeCounter.Properties.Resources.IconStop;
-            this.btStop.Location = new System.Drawing.Point(278, 214);
+            this.btStop.Location = new System.Drawing.Point(278, 253);
             this.btStop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btStop.Name = "btStop";
             this.btStop.Size = new System.Drawing.Size(120, 118);
@@ -63,7 +64,7 @@
             // 
             this.btPause.Enabled = false;
             this.btPause.Image = global::TimeCounter.Properties.Resources.IconPause;
-            this.btPause.Location = new System.Drawing.Point(148, 214);
+            this.btPause.Location = new System.Drawing.Point(148, 253);
             this.btPause.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btPause.Name = "btPause";
             this.btPause.Size = new System.Drawing.Size(120, 118);
@@ -74,7 +75,7 @@
             // btStart
             // 
             this.btStart.Image = ((System.Drawing.Image)(resources.GetObject("btStart.Image")));
-            this.btStart.Location = new System.Drawing.Point(20, 214);
+            this.btStart.Location = new System.Drawing.Point(20, 253);
             this.btStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btStart.Name = "btStart";
             this.btStart.Size = new System.Drawing.Size(120, 118);
@@ -142,12 +143,22 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Всего за сегодня";
             // 
+            // lStopped
+            // 
+            this.lStopped.AutoSize = true;
+            this.lStopped.Location = new System.Drawing.Point(16, 215);
+            this.lStopped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lStopped.Name = "lStopped";
+            this.lStopped.Size = new System.Drawing.Size(0, 20);
+            this.lStopped.TabIndex = 9;
+            // 
             // FormTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btStop;
-            this.ClientSize = new System.Drawing.Size(416, 355);
+            this.ClientSize = new System.Drawing.Size(416, 394);
+            this.Controls.Add(this.lStopped);
             this.Controls.Add(this.tbTodayTimer);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbCurrentTimer);
@@ -182,5 +193,6 @@
         private System.Windows.Forms.TextBox tbCurrentTimer;
         private System.Windows.Forms.TextBox tbTodayTimer;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lStopped;
     }
 }

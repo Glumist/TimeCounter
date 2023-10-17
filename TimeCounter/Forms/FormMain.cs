@@ -107,7 +107,7 @@ namespace TimeCounter
 
             Record selectedRecord = selectedRecords[0];
 
-            FormAddTime form = new FormAddTime(selectedRecord.Name);
+            FormEditTime form = new FormEditTime(selectedRecord.Name);
             if (form.ShowDialog() != DialogResult.OK)
                 return;
 

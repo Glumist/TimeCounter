@@ -15,13 +15,11 @@ namespace TimeCounter
     {
         public Record EditedRecord;
 
+        private List<Counter> _changedCounters;
+
         public FormRecord()
+            :this(new Record())
         {
-            InitializeComponent();
-            dgvTimers.AutoGenerateColumns = false;
-
-            EditedRecord = new Record();
-
             scRecord.Panel2Collapsed = true;
             Width = 300;
         }
@@ -30,6 +28,8 @@ namespace TimeCounter
         {
             InitializeComponent();
             dgvTimers.AutoGenerateColumns = false;
+
+            _changedCounters= new List<Counter>();
 
             EditedRecord = record;
             tbName.Text = record.Name;
@@ -56,8 +56,26 @@ namespace TimeCounter
 
             EditedRecord.Name = tbName.Text;
 
+            foreach (Counter counter in _changedCounters)            
+                EditedRecord.Timers[counter.Date] = counter.Timer.TotalSeconds;            
+
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void dgvTimers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvTimers.SelectedRows.Count == 0 || dgvTimers.SelectedRows[0].Index == -1)
+                return;
+
+            Counter selectedCounter = dgvTimers.SelectedRows[0].DataBoundItem as Counter;
+            int editedMinutes = (int)Math.Floor(selectedCounter.Timer.TotalMinutes);
+            FormEditTime form = new FormEditTime(tbName.Text, selectedCounter.Date, editedMinutes);
+            if (form.ShowDialog() != DialogResult.OK)
+                return;
+
+            selectedCounter.Timer += TimeSpan.FromMinutes(form.EditedMinutes - editedMinutes);
+            _changedCounters.Add(selectedCounter);
         }
 
         private class Counter

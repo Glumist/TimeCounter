@@ -1,6 +1,6 @@
 ﻿namespace TimeCounter
 {
-    partial class FormAddTime
+    partial class FormEditTime
     {
         /// <summary>
         /// Required designer variable.
